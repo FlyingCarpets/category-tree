@@ -1,7 +1,14 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import CategoryTree from './containers/CategoryTree/CategoryTree';
+import { Provider } from 'react-redux';
+import store from './store';
+import App from './App';
 
 import '../assets/scss/main.scss';
 
-ReactDOM.render(<CategoryTree/>, document.getElementById('app'));
+ReactDOM.render(
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+    document.getElementById('app')
+);
