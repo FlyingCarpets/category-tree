@@ -1,6 +1,6 @@
 const initialState = {
     name: '',
-    nickname: ''
+    surname: ''
 };
 
 const nameReducer = (state = initialState, action) => {
