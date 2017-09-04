@@ -11,7 +11,11 @@ class User extends React.Component {
         this.state = {
             firstName: '',
             lastName: ''
-        }
+        };
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleNameAdd = this.handleNameAdd.bind(this);
+        this.handleSurnameAdd = this.handleSurnameAdd.bind(this);
     }
     handleNameAdd(e) {
         this.setState({
@@ -36,23 +40,24 @@ class User extends React.Component {
     }
     render() {
         const { name, surname } = this.props.userData;
+        const { firstName, lastName } = this.state;
 
         return (
             <div className="test-container">
-                <form onSubmit={this.handleSubmit.bind(this)}>
+                <form onSubmit={ this.handleSubmit }>
                     Enter user first name
                     <div className="form-group">
                         <input
-                            onChange={this.handleNameAdd.bind(this)}
-                            value={this.state.firstName}
+                            onChange={ this.handleNameAdd }
+                            value={ firstName }
                             type="text"
                             className="form-control"/>
                     </div>
                     Enter user last name
                     <div className="form-group">
                         <input
-                            onChange={this.handleSurnameAdd.bind(this)}
-                            value={this.state.lastName}
+                            onChange={ this.handleSurnameAdd }
+                            value={ lastName }
                             type="text"
                             className="form-control"/>
                     </div>
@@ -63,11 +68,11 @@ class User extends React.Component {
 
                 <div>
                     First name:
-                    <strong>{name}</strong>
+                    <strong>{ name }</strong>
                 </div>
                 <div>
                     Last name:
-                    <strong>{surname}</strong>
+                    <strong>{ surname }</strong>
                 </div>
 
                 <Description/>

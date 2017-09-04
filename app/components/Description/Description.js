@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 import { fetchDescription } from '../../actions/infoActions';
 
 class Description extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.fetchDescription = this.fetchDescription.bind(this);
+    }
     fetchDescription() {
         this.props.fetchDescription();
     }
@@ -11,13 +16,13 @@ class Description extends React.Component {
 
         return (
             <div className="p-t-15">
-                <button onClick={this.fetchDescription.bind(this)} className="btn">
+                <button onClick={ this.fetchDescription } className="btn">
                     Fetch description (api)
                 </button>
                 <div>
                     Description:
                     <div>
-                        <strong>{description}</strong>
+                        <strong>{ description }</strong>
                         </div>
                 </div>
             </div>
@@ -26,6 +31,6 @@ class Description extends React.Component {
 }
 
 export default connect(
-    (state) => ({infoData: state.infoData}),
+    (state) => ({ infoData: state.infoData }),
     { fetchDescription }
 )(Description);
